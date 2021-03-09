@@ -4,15 +4,13 @@ import { EventContext } from "./EventProvider"
 
 export const EventForm = () => {
 
-    const { addEvent } = useContext(EventContext)
+    const { addEvent, getEvents } = useContext(EventContext)
 
     const [event, setEvent] = useState({
         name: "",
         date: "",
         location: "",
     });
-
-    // const [isLoading, setIsLoading] = useState(true);
 
     // const { eventId } = useParams();
     const history = useHistory();
@@ -24,9 +22,9 @@ export const EventForm = () => {
     const handleControlledInputChange = (event) => {
         const newEvent = { ...event }
 
-        // let inputValue = event.target.value
+        let inputValue = event.target.value
 
-        newEvent[event.target.id] = event.target.value
+        newEvent[event.target.id] = inputValue
 
         setEvent(newEvent)
     }
@@ -45,7 +43,7 @@ export const EventForm = () => {
     }
 
     useEffect(() => {
-        setEvent(event)
+        getEvents()
     }, [])
 
     return (
