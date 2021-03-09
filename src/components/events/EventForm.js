@@ -44,6 +44,10 @@ export const EventForm = () => {
         }
     }
 
+    useEffect(() => {
+        setEvent(event)
+    }, [])
+
     return (
         <form className="eventForm">
             <h2 className="eventForm__title">Add a New Event</h2>
