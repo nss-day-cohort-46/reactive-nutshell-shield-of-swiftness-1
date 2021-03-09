@@ -5,7 +5,9 @@ export const FriendCard = ({friend}) => {
   return (
     <div className="friend">
       <div className="friend__name">{friend.user?.name}</div>
+      <div className="friend__name">{friend.user?.email}</div>
     </div>
+    
   )
 }
 

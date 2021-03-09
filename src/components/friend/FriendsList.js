@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { FriendsContext } from "./FriendsProvider"
 import { FriendCard } from "./FriendsCard"
+import "./Friends.css"
 
 
 export const FriendsList = () => {
