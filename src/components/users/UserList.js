@@ -1,36 +1,24 @@
-import React, { useContext, useEffect, useState } from "react"
-import { FriendsContext } from "../friends/FriendsProvider"
+import React, { useContext, useEffect } from "react"
 import { UsersContext } from "./UsersProvider"
+
+
 import { UserCard } from "./UserCard"
+import { FriendsContext } from "./friend/FriendProvider";
 
 
 export const UserList = () => {
-    const [filteredUsers, setFilteredUsers] = useState([])
-    const { filteredFriends, getFriends } = useContext(FriendsContext)
 
+    const { filteredUsers, setFilteredUsers } = useContext(FriendsContext)
     const { users, getUsers } = useContext(UsersContext)
 
     useEffect(() => {
         getFriends()
         .then(getUsers)
     }, [])
-    
 
     useEffect(() => {
-        setFilteredUsers(filterUsers())
+        getUsers()
     }, [users])
-    
-    const filterUsers = () => {
-        let isFriends = false
-        return users.filter(user => {
-            const friendCheck = filteredFriends.find(f => f.userId === user.id)
-            if ( friendCheck !== undefined) {
-                user.isFriends = true
-            } else {
-                user.isFriends = isFriends
-            }
-            return user.id !== parseInt(sessionStorage.nutshell_user)})
-    }
 
     return (
         <>
@@ -41,3 +29,6 @@ export const UserList = () => {
         </>
     )
 }
+
+// This module provides data taken from the user provider,
+//  in order to search through all users

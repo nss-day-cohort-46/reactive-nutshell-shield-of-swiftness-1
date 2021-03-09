@@ -5,7 +5,7 @@ import { FriendCard } from "./FriendsCard"
 
 export const FriendsList = () => {
 
-    const { filteredFriends, getFriends } = useContext(FriendsContext)
+    const { friends, getFriends } = useContext(FriendsContext)
 
     useEffect(() => {
         getFriends()
@@ -14,7 +14,10 @@ export const FriendsList = () => {
     return (
         <>
             <h1>My Friends: </h1>
-            {filteredFriends.map(friend => <FriendCard key={friend.id} friend={friend} />)}
+            {friends.map(friend => <FriendCard key={friend.id} friend={friend} />)}
         </>
     )
 }
+
+// This module provides data taken from the friend provider, then
+// passes it to FriendCard, then renders FriendCard for each friend.
