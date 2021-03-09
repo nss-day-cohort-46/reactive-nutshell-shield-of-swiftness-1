@@ -1,5 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { FriendsList } from "./friend/FriendsList"
+import { FriendsProvider } from "./friend/FriendsProvider"
+
 
 export const ApplicationViews = () => {
   return (
@@ -8,15 +11,21 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         {/* Render the component for news articles */}
       </Route>
+
+      <FriendsProvider >
       <Route path="/friends">
-        {/* Render the component for list of friends */}
+        <FriendsList/>
       </Route>
+      </ FriendsProvider >
+
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
+
       <Route path="/tasks">
         {/* Render the component for the user's tasks */}
       </Route>
+
       <Route path="/events">
         {/* Render the component for the user's events */}
       </Route>
