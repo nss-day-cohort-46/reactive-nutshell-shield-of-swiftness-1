@@ -4,11 +4,9 @@ import { EventProvider } from "./events/EventProvider"
 import { EventList } from "./events/EventList"
 import { FriendsProvider } from "./friend/FriendsProvider"
 import { FriendsList } from "./friend/FriendsList"
-
-
-
 import { TaskProvider } from "./tasks/TaskProvider"
-import {TaskList} from "./tasks/TaskList"
+import { TaskList } from "./tasks/TaskList"
+import {TaskForm} from "./tasks/TaskForm"
 
 export const ApplicationViews = () => {
   return (
@@ -18,9 +16,9 @@ export const ApplicationViews = () => {
         {/* Render the component for news articles */}
       </Route>
 
-       <FriendsProvider >
+      <FriendsProvider >
         <Route path="/friends">
-          <FriendsList/>
+          <FriendsList />
         </Route>
       </ FriendsProvider >
 
@@ -29,15 +27,19 @@ export const ApplicationViews = () => {
         {/* Render the component for the messages */}
       </Route>
 
-      
-       {/* Render the component for the user's tasks */}
+
+      {/* Render the component for the user's tasks */}
       <TaskProvider>
-      <Route path="/tasks">
-       <TaskList/>
-      </Route>
+        <Route path="/tasks">
+          <TaskList />
+        </Route>
+        <Route path="/tasks/create">
+          <TaskForm />
+        </Route>
       </TaskProvider>
 
-        {/* Render the component for the user's events */}
+
+      {/* Render the component for the user's events */}
       <EventProvider>
         <Route path="/events">
           <EventList />
