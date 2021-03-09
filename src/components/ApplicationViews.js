@@ -7,6 +7,8 @@ import { FriendsList } from "./friend/FriendsList"
 
 
 
+import { TaskProvider } from "./tasks/TaskProvider"
+import {TaskList} from "./tasks/TaskList"
 
 export const ApplicationViews = () => {
   return (
@@ -27,9 +29,14 @@ export const ApplicationViews = () => {
         {/* Render the component for the messages */}
       </Route>
 
+      
+       {/* Render the component for the user's tasks */}
+      <TaskProvider>
       <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
+       <TaskList/>
       </Route>
+      </TaskProvider>
+
         {/* Render the component for the user's events */}
       <EventProvider>
         <Route path="/events">
