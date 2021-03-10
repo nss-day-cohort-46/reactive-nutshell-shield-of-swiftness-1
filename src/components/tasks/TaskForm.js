@@ -38,7 +38,7 @@ export const TaskForm = () => {
       // forms always provide values as strings. But we want to save the ids as numbers. 
       if (event.target.id.includes("Id")) {
         selectedVal = parseInt(selectedVal)
-        // const userId = parseInt(sessionStorage.getItem("activeUser"))
+        const userId = parseInt(sessionStorage.getItem("activeUser"))
       
       }
       /* Task is an object with properties.
