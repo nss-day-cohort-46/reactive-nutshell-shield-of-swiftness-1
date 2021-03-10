@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { EventContext } from "./EventProvider"
 import { EventCard } from "./Event"
+import "./Event.css"
 
 export const EventList = () => {
     
@@ -18,7 +19,7 @@ export const EventList = () => {
             <h2>Upcoming Events</h2>
             <div className="events__page">
 
-            <button onClick={() => {history.push("/events/create")}}>Add New Event</button>
+            <button className="event__add" onClick={() => {history.push("/events/create")}}>Add New Event</button>
                 <div>
                     {
                         sortedEvents.map(eventObj => {

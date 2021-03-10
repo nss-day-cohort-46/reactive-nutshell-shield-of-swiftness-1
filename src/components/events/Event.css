@@ -1,0 +1,25 @@
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .event {
+      flex-basis: 28%;
+      margin: 1em;
+      padding: 1em;
+      border: 1px solid bisque;
+      width: 500px;
+  }
+
+  .event__delete {
+      margin-left: 350px;
+  }
+
+  .event__add {
+      margin: 10px 0px 10px 50px;
+  }
+
+  h2 {
+      margin: 50px;
+  }

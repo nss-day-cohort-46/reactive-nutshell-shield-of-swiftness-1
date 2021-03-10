@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { EventContext } from "./EventProvider"
+import "./Event.css"
 
 export const EventCard = ({event}) => {
 
@@ -11,9 +12,9 @@ export const EventCard = ({event}) => {
 
     return (
         <section className="event">
-            <h3 className="event__name">
+            <h5 className="event__name">
                 {event.name}
-            </h3>
+            </h5>
             <div className="event__date">{event.date}</div>
             <div className="event__location">{event.location}</div>
             <button className="event__delete"

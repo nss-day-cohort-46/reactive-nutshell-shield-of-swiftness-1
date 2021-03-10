@@ -22,7 +22,8 @@ export const EventProvider = (props) => {
     const sortedEvents = events.sort(
         (olderEvent, recentEvent) =>
             Date.parse(olderEvent.date) - Date.parse(recentEvent.date)
-    )
+
+            )
 
     const addEvent = eventObj => {
         return fetch("http://localhost:8088/events", {
