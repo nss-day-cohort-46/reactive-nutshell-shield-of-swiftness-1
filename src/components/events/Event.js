@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 import { EventContext } from "./EventProvider"
-// import { Link } from "react-router-dom"
 
 export const EventCard = ({event}) => {
 
@@ -13,9 +12,6 @@ export const EventCard = ({event}) => {
     return (
         <section className="event">
             <h3 className="event__name">
-                {/* <Link to={`/animals/detail/${event.id}`}>
-                { event.name }
-                </Link> */}
                 {event.name}
             </h3>
             <div className="event__date">{event.date}</div>
