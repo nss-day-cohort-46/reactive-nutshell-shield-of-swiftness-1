@@ -1,20 +1,17 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { EventContext } from "./EventProvider"
 import { EventCard } from "./Event"
 
 export const EventList = () => {
     
-    const { events, getEvents } = useContext(EventContext)
+    const { sortedEvents, getEvents } = useContext(EventContext)
 
     const history = useHistory()
-
-    // const sortedEvents = events.slice().sort((a, b) => a.date - b.date)
 
     useEffect(() => {
         getEvents()
       }, [])
-
 
     return (
         <>
@@ -24,7 +21,7 @@ export const EventList = () => {
             <button onClick={() => {history.push("/events/create")}}>Add New Event</button>
                 <div>
                     {
-                        events.map(eventObj => {
+                        sortedEvents.map(eventObj => {
                             return <EventCard key={eventObj.id} event={eventObj} />
                         })
                     }
