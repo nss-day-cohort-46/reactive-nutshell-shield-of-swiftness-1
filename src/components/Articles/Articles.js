@@ -1,16 +1,14 @@
 import React from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 
-export const ArticleCard = ({ articles }) => (
-<section className="articles">
-    {console.log(articles)}
+export const ArticleCard = ({ article }) => {
+return (
+  <section className="articles">
     <h3 className="articles__title">
-      {/* <Link to={`/animals/detail/${animalProps.id}`}>
-        {animalProps.name}
-      </Link> */}
-      {articles.title}
+      {article.title}
     </h3>
-    <div className="article__url">url: {articles.url}</div>
-    <div className="article__synopsis">Synopsis: {articles.synopis}</div>
+    <div className="article__url">url: {article.url}</div>
+    <div className="article__synopsis">Synopsis: {article.synopsis}</div>
   </section>
 )
+    }

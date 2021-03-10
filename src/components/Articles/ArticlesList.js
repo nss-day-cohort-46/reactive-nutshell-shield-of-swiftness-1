@@ -21,8 +21,8 @@ export const ArticlesList = () => {
             <div className="articles__page">
                 <div>
                     {
-                        articles.map(articlesObj => {
-                            return <ArticleCard key={articlesObj.id} article={articlesObj} />
+                        articles.map(articleObj => {
+                            return <ArticleCard key={articleObj.id} article={articleObj} />
                         })
                     }
 
