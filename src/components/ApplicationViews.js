@@ -70,6 +70,10 @@ export const ApplicationViews = () => {
         <Route path="/events/create">
           <EventForm />
         </Route>
+
+        <Route path="/events/edit/:eventId(\d+)">
+          <EventForm />
+        </Route>
       </EventProvider>
     </>
   )
