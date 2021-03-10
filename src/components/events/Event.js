@@ -7,16 +7,16 @@ export const EventCard = ({event}) => {
 
     const { deleteEvent, editEvent } = useContext(EventContext)
     
-    const [event, setEvent] = useState({
-        name: "",
-        date: "",
-        location: ""
-    })
+    // const [event, setEvent] = useState({
+    //     name: "",
+    //     date: "",
+    //     location: ""
+    // })
 
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
 
-    const { eventId } = useParams();
-	  const history = useHistory();
+    // const { eventId } = useParams();
+	//   const history = useHistory();
 
     const handleDelete = () => {
         deleteEvent(event.id)
@@ -34,8 +34,8 @@ export const EventCard = ({event}) => {
             <button className="event__delete"
             onClick={handleDelete}>Delete Event</button>
 
-            <button className="event__edit"
-            onClick={handleEdit}>Edit Event</button>
+            {/* <button className="event__edit"
+            onClick={handleEdit}>Edit Event</button> */}
         </section>
     )
 }
