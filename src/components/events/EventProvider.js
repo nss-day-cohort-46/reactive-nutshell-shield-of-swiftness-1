@@ -2,6 +2,14 @@ import React, { useState, createContext } from "react"
 
 export const EventContext = createContext()
 
+export const sortEvents = () => {
+    const sortedEvents = events.sort(
+        (olderEvent, recentEvent) =>
+            Date.parse(olderEvent.date) - Date.parse(recentEvent.date)
+    )
+    return sortedEvents
+}
+
 export const EventProvider = (props) => {
     const [events, setEvents] = useState([])
 
