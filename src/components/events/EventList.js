@@ -9,9 +9,10 @@ export const EventList = () => {
 
     const history = useHistory()
 
+    // const sortedEvents = events.slice().sort((a, b) => a.date - b.date)
+
     useEffect(() => {
         getEvents()
-    
       }, [])
 
 
