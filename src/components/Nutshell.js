@@ -13,6 +13,7 @@ export const Nutshell = () => (
         if (sessionStorage.getItem("nutshell_user")) {
           return (
             <>
+            
               <NavBar />
               <ApplicationViews />
             </>

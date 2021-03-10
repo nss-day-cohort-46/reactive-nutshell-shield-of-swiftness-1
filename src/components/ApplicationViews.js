@@ -2,6 +2,8 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { EventProvider } from "./events/EventProvider"
 import { EventList } from "./events/EventList"
+import { ArticleProvider } from "./Articles/ArticlesProvider"
+import { ArticlesList } from "./Articles/ArticlesList"
 import { EventForm } from "./events/EventForm"
 import { FriendsProvider } from "./friend/FriendsProvider"
 import { FriendsList } from "./friend/FriendsList"
@@ -15,11 +17,18 @@ export const ApplicationViews = () => {
   return (
     <>
 
-      <Route exact path="/">
-        {/* Render the component for news articles */}
+      
+      <ArticleProvider>
+        <Route exact path="/articles">
+          <ArticlesList />  
+        </Route>
+      </ArticleProvider>
+      
+      <Route path="/friends">
+        {/* Render the component for list of friends */}
       </Route>
 
-       <FriendsProvider >
+      <FriendsProvider >
         <Route path="/friends">
           <FriendsList/>
         </Route>
