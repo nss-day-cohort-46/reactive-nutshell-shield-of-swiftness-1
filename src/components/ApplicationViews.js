@@ -4,6 +4,7 @@ import { EventProvider } from "./events/EventProvider"
 import { EventList } from "./events/EventList"
 import { ArticleProvider } from "./Articles/ArticlesProvider"
 import { ArticlesList } from "./Articles/ArticlesList"
+import { EventForm } from "./events/EventForm"
 import { FriendsProvider } from "./friend/FriendsProvider"
 import { FriendsList } from "./friend/FriendsList"
 
@@ -48,8 +49,12 @@ export const ApplicationViews = () => {
 
         {/* Render the component for the user's events */}
       <EventProvider>
-        <Route path="/events">
+        <Route exact path="/events">
           <EventList />
+        </Route>
+
+        <Route path="/events/create">
+          <EventForm />
         </Route>
       </EventProvider>
     </>
