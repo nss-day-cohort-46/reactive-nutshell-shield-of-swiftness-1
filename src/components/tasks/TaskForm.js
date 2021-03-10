@@ -47,7 +47,7 @@ export const TaskForm = () => {
       setTasks(newTask)
     }
 
-    const handleClickSaveLocation = (event) => {
+    const handleClickSaveTask = (event) => {
       event.preventDefault() //Prevents the browser from submitting the form
 
         //invoke addLocation passing locations as an argument.
@@ -74,7 +74,7 @@ export const TaskForm = () => {
           </fieldset>
           
           <button className="btn btn-primary"
-            onClick={handleClickSaveLocation}>
+            onClick={handleClickSaveTask}>
             Save New Task
           </button>
       </form>
