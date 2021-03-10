@@ -9,9 +9,10 @@ export const EventList = () => {
 
     const history = useHistory()
 
+    // const sortedEvents = events.slice().sort((a, b) => a.date - b.date)
+
     useEffect(() => {
         getEvents()
-    
       }, [])
 
 
@@ -19,6 +20,8 @@ export const EventList = () => {
         <>
             <h2>Upcoming Events</h2>
             <div className="events__page">
+
+            <button onClick={() => {history.push("/events/create")}}>Add New Event</button>
                 <div>
                     {
                         events.map(eventObj => {
