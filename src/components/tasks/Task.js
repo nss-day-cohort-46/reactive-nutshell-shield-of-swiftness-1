@@ -17,7 +17,6 @@ export const Task = ({task}) => {
 
     const taskCompleted =() => {
         completeTask(task.id)
-        .then(() => history.push("/tasks"))
       
     }
 
