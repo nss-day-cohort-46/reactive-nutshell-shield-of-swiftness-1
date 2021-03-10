@@ -38,20 +38,24 @@ export const TaskForm = () => {
       // forms always provide values as strings. But we want to save the ids as numbers. 
       if (event.target.id.includes("Id")) {
         selectedVal = parseInt(selectedVal)
+        // const userId = parseInt(sessionStorage.getItem("activeUser"))
+      
       }
-      /* Location is an object with properties.
+      /* Task is an object with properties.
       Set the property to the new value
       using object bracket notation. */
       newTask[event.target.id] = selectedVal
+      
       // update state
+      
       setTasks(newTask)
     }
 
     const handleClickSaveTask = (event) => {
       event.preventDefault() //Prevents the browser from submitting the form
 
-        //invoke addLocation passing locations as an argument.
-        //once complete, change the url and display the locations list
+        //invoke addTask passing tasks as an argument.
+        //once complete, change the url and display the tasks list
         addTask(tasks)
         .then(() => history.push("/tasks"))
       }
