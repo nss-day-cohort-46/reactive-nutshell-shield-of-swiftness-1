@@ -7,8 +7,10 @@ import { ArticlesList } from "./Articles/ArticlesList"
 import { EventForm } from "./events/EventForm"
 import { FriendsProvider } from "./friend/FriendsProvider"
 import { FriendsList } from "./friend/FriendsList"
+import { UsersProvider } from "./users/UserProvider"
 import { TaskProvider } from "./tasks/TaskProvider"
-import { TaskList } from "./tasks/TaskList"
+import {TaskList} from "./tasks/TaskList"
+import { FriendsSearch } from "./friend/FriendsSearch"
 import {TaskForm} from "./tasks/TaskForm"
 
 export const ApplicationViews = () => {
@@ -26,11 +28,21 @@ export const ApplicationViews = () => {
         {/* Render the component for list of friends */}
       </Route>
 
-      <FriendsProvider >
-        <Route path="/friends">
-          <FriendsList />
-        </Route>
-      </ FriendsProvider >
+      <FriendsProvider>
+
+         <UsersProvider>
+             <Route exact path="/friends">
+          {/* Render the component for list of friends */}
+                   <FriendsList />
+             </Route>
+
+          <Route exact path="/friends/search">
+              <FriendsSearch />
+          </Route>
+        </UsersProvider>
+
+      </FriendsProvider>
+
 
 
       <Route path="/messages">

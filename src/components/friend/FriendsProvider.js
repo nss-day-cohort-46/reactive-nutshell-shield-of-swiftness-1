@@ -17,14 +17,32 @@ export const FriendsProvider = (props) => {
     const [friends, setFriends] = useState([])
     // Manages state of friends of the current user
     const [filteredFriends, setFilteredFriends] = useState([])
+   
 
     const getFriends = () => {
         return fetch("http://localhost:8088/friends?_expand=user")
             .then(res => res.json())
             .then(setFriends)
     }
+    const addFriends = (obj) => {
+        return fetch("http://localhost:8088/friends", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(obj)
+        })
+        .then(getFriends)
+      }
 
-    // const filterFriends = () => {
+    //   const removeFriend = (id) => {
+    //     return fetch(`http://localhost:8088/friends/${id}`, {
+    //       method: "DELETE"
+    //     })
+    //     .then(getFriends)
+    //   }
+
+    //    const filterFriends = () => {
     //     return friends.filter(friend => friend.currentUserId === parseInt(sessionStorage.nutshell_user))
     // }
 
@@ -32,10 +50,9 @@ export const FriendsProvider = (props) => {
     //     setFilteredFriends(filterFriends())
     // }, [friends])
 
-
     return (
         <FriendsContext.Provider value={{
-            friends, getFriends
+            friends, getFriends, addFriends
         }}>
             {props.children}
         </FriendsContext.Provider>
