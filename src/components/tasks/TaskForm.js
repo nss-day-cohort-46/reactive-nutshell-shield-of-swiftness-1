@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 export const TaskForm = () => {
     const {addTask} = useContext(TaskContext)
     const {getTasks } = useContext(TaskContext)
-   
+    const userId = parseInt(sessionStorage.getItem("nutshell_user"))
        /*
     With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
     Define the intial state of the form inputs with useState()
@@ -13,8 +13,9 @@ export const TaskForm = () => {
 
     const [tasks, setTasks] = useState({
       name: "",
+      date: "",
       id: 0,
-      
+      userId: userId
     });
 
     const history = useHistory();
@@ -35,27 +36,24 @@ export const TaskForm = () => {
       always create a copy, make changes, and then set state.*/
       const newTask = { ...tasks }
       let selectedVal = event.target.value
+      
       // forms always provide values as strings. But we want to save the ids as numbers. 
       if (event.target.id.includes("Id")) {
         selectedVal = parseInt(selectedVal)
-        const userId = parseInt(sessionStorage.getItem("activeUser"))
-      
       }
-      /* Task is an object with properties.
+      /* Location is an object with properties.
       Set the property to the new value
       using object bracket notation. */
       newTask[event.target.id] = selectedVal
-      
       // update state
-      
       setTasks(newTask)
     }
 
     const handleClickSaveTask = (event) => {
       event.preventDefault() //Prevents the browser from submitting the form
 
-        //invoke addTask passing tasks as an argument.
-        //once complete, change the url and display the tasks list
+        //invoke addLocation passing locations as an argument.
+        //once complete, change the url and display the locations list
         addTask(tasks)
         .then(() => history.push("/tasks"))
       }
