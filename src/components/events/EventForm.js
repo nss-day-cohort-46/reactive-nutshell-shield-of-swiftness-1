@@ -19,20 +19,24 @@ export const EventForm = () => {
     
     // input fields in new event form to change
 
-    const handleControlledInputChange = (event) => {
+    const handleControlledInputChange = (e) => {
         const newEvent = { ...event }
 
-        let inputValue = event.target.value
+        let inputValue = e.target.value
 
-        newEvent[event.target.id] = inputValue
+        if (e.target.id.includes("Id")) {
+            inputValue = parseInt(inputValue)
+        }
+
+        newEvent[e.target.id] = inputValue
 
         setEvent(newEvent)
     }
 
     // save function to save event
 
-    const handleSaveEvent = () => {
-        event.preventDefault()
+    const handleSaveEvent = (e) => {
+        e.preventDefault()
 
         if (event.name === "" || event.date === "" || event.location === "") {
             window.alert("Please complete the field")
