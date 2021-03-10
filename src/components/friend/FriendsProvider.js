@@ -42,6 +42,8 @@ export const FriendsProvider = (props) => {
         .then(getFriends)
       }
 
+      
+
     //    const filterFriends = () => {
     //     return friends.filter(friend => friend.currentUserId === parseInt(sessionStorage.nutshell_user))
     // }
