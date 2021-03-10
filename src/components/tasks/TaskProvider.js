@@ -43,6 +43,7 @@ export const TaskProvider = (props) => {
         body: JSON.stringify(taskComplete)
     })
         .then(getTasks)
+       
 
     }
 

@@ -14,7 +14,7 @@ export const TaskList = () => {
 
     //useEffect - reach out to the world for something - API call for the tasks; wil only run one time at intial render because array is empty
     useEffect(() => {
-      console.log("TaskList: useEffect - getTasks")
+      // console.log("TaskList: useEffect - getTasks")
       getTasks()
 
     }, [])
@@ -26,7 +26,7 @@ export const TaskList = () => {
           <button onClick={() => {history.push("/tasks/create")}}>
             Add New Task
           </button>
-        {console.log("TaskList: Render", tasks)}
+        {/* {console.log("TaskList: Render", tasks)} */}
         {
             // using .map method to iterate the array of tasks and generate HTML for each one by invoking the "Task" comp
           tasks.map(taskObj=> {
