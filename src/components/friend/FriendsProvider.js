@@ -17,6 +17,7 @@ export const FriendsProvider = (props) => {
     const [friends, setFriends] = useState([])
     // Manages state of friends of the current user
     const [filteredFriends, setFilteredFriends] = useState([])
+   
 
     const getFriends = () => {
         return fetch("http://localhost:8088/friends?_expand=user")

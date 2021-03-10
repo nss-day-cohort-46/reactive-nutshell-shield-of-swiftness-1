@@ -6,9 +6,9 @@ import { EventForm } from "./events/EventForm"
 import { FriendsProvider } from "./friend/FriendsProvider"
 import { FriendsList } from "./friend/FriendsList"
 import { UsersProvider } from "./users/UserProvider"
-
 import { TaskProvider } from "./tasks/TaskProvider"
 import {TaskList} from "./tasks/TaskList"
+import { FriendsSearch } from "./friend/FriendsSearch"
 
 export const ApplicationViews = () => {
   return (
@@ -23,7 +23,12 @@ export const ApplicationViews = () => {
         <Route exact path="/friends">
           {/* Render the component for list of friends */}
           <FriendsList />
-        </Route>
+          </Route>
+
+          <Route exact path="/friends/search">
+          <FriendsSearch />
+          </Route>
+       
       </UsersProvider>
       </FriendsProvider>
 

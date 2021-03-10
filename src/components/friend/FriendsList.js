@@ -21,8 +21,8 @@ export const FriendsList = () => {
       }, [])
 
 
-    //   const filteredFriends = friends.filter(friend => friend.currentUserId === parseInt(sessionStorage.nutshell_user))
-    //   const matchingFriends = filteredFriends.map(friend => users.find(user => user.id === friend.userId))
+      const filteredFriends = friends.filter(friend => friend.currentUserId === parseInt(sessionStorage.nutshell_user))
+      const matchingFriends = filteredFriends.map(friend => users.find(user => user.id === friend.userId))
     
     
     return (
@@ -31,7 +31,7 @@ export const FriendsList = () => {
             <Link to="/friends/search">
              <button className="friends__searchBtn" >Add a Friend</button>
              </Link>
-            {friends.map(friend => <FriendCard key={friend.id} friend={friend} />)}
+            {matchingFriends.map(friend => <FriendCard key={friend.id} friend={friend} />)}
         </>
     )
 }
