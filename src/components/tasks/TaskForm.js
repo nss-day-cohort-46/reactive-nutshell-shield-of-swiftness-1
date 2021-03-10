@@ -14,6 +14,7 @@ export const TaskForm = () => {
     const [tasks, setTasks] = useState({
       name: "",
       date: "",
+      isComplete: false,
       id: 0,
       userId: userId
     });
