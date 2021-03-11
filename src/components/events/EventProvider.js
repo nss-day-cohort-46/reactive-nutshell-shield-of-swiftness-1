@@ -2,6 +2,14 @@ import React, { useState, createContext } from "react"
 
 export const EventContext = createContext()
 
+// export const sortEvents = () => {
+//     const sortedEvents = events.sort(
+//         (olderEvent, recentEvent) =>
+//             Date.parse(olderEvent.date) - Date.parse(recentEvent.date)
+//     )
+//     return sortedEvents
+// }
+
 export const EventProvider = (props) => {
     const [events, setEvents] = useState([])
 
@@ -10,6 +18,12 @@ export const EventProvider = (props) => {
         .then(response => response.json())
         .then(setEvents)
     }
+
+    const sortedEvents = events.sort(
+        (olderEvent, recentEvent) =>
+            Date.parse(olderEvent.date) - Date.parse(recentEvent.date)
+
+            )
 
     const addEvent = eventObj => {
         return fetch("http://localhost:8088/events", {
@@ -29,9 +43,20 @@ export const EventProvider = (props) => {
             .then(getEvents)
     }
 
+    const editEvent = event => {
+        return fetch(`http://localhost:8088/events/${event.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(event)
+        })
+          .then(getEvents)
+      }
+
     return (
         <EventContext.Provider value ={{
-            events, getEvents, addEvent, deleteEvent
+            sortedEvents, getEvents, addEvent, deleteEvent, editEvent
         }}>
             {props.children}
         </EventContext.Provider>
