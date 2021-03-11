@@ -52,7 +52,7 @@ export const ArticleForm = () => {
 
     
     return (
-        <form className="articleForm">
+        <form className="articleForm" onSubmit={handleSaveArticle}> 
             <h2 className="ariticleForm__title">Add a New Article</h2>
             <fieldset>
                 <div className="form-group">
@@ -78,9 +78,8 @@ export const ArticleForm = () => {
                     value={article.url}/>
                 </div>
             </fieldset>
-
-            <button className="btn btn-primary"
-                onClick={handleSaveArticle}>
+            <button className="btn btn-primary" type="submit"
+                >
                 Save New Article
             </button>
         </form>
