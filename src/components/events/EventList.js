@@ -19,7 +19,7 @@ export const EventList = () => {
         
 
     useEffect(() => {
-        const theSortedEvents = events.splice().sort(
+        const theSortedEvents = events.slice().sort(
             (futureEvent, nextEvent) => {
                 
                 const otherEvent = new Date(futureEvent.date)
