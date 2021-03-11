@@ -41,7 +41,7 @@ export const EventProvider = (props) => {
       }
 
       const getEventByUserId = (userId) => {
-        return fetch(`http://localhost:8088/events/${userId}?_expand=userId`)
+        return fetch(`http://localhost:8088/events/events?userId=${userId}`)
             .then(res => res.json())
     }
 
