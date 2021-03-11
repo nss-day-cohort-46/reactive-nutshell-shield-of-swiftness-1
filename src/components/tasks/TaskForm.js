@@ -14,6 +14,7 @@ export const TaskForm = () => {
     const [tasks, setTasks] = useState({
       name: "",
       date: "",
+      isComplete: false,
       id: 0,
       userId: userId
     });
@@ -26,6 +27,7 @@ export const TaskForm = () => {
     */
     useEffect(() => {
       getTasks()
+      
     }, [])
 
     //when a field changes, update state. The return will re-render and display based on the values in state
@@ -41,7 +43,7 @@ export const TaskForm = () => {
       if (event.target.id.includes("Id")) {
         selectedVal = parseInt(selectedVal)
       }
-      /* LTask is an object with properties.
+      /* Task is an object with properties.
       Set the property to the new value
       using object bracket notation. */
       newTask[event.target.id] = selectedVal
@@ -52,7 +54,7 @@ export const TaskForm = () => {
     const handleClickSaveTask = (event) => {
       event.preventDefault() //Prevents the browser from submitting the form
 
-        //invoke addTask passing locations as an argument.
+        //invoke addTask passing tasks as an argument.
         //once complete, change the url and display the tasks list
         addTask(tasks)
         .then(() => history.push("/tasks"))
