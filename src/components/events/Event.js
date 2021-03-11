@@ -21,6 +21,8 @@ export const EventCard = ({event, counter}) => {
         deleteEvent(event.id)
     }
 
+    // add inline styling for index of 1 in sorted array 
+
     let date = {}
     let location = {}
     let name = {}
