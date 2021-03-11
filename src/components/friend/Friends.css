@@ -10,3 +10,29 @@
       padding: 1em;
       border: 1px solid goldenrod;
 }
+
+.friends__btn {
+  background: #343a40;
+  color: #007bff;
+  padding: 5px
+}
+
+.friends__searchBtn {
+  margin: 10px;
+  border-radius: 5px;
+  color: blue;
+}
+
+.friends__searchBar {
+  margin: 10px;
+  border: 1px black solid;
+  border-radius: 15px;
+  text-align: center;
+  outline: none;
+}
+
+.friends__title {
+  text-align: center;
+  padding: 0.5em;
+  background: lightblue;
+}
