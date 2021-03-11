@@ -16,7 +16,7 @@ export const TaskList = () => {
      //useEffect - reach out to the world for something - API call for the tasks; wil only run one time at intial render because array is empty
     useEffect(() => {
       getTasks()
-      }, [])
+      }, [tasks])
 
    
     useEffect(() => {
@@ -26,7 +26,7 @@ export const TaskList = () => {
         setFilteredTasks(subset)
       })
 
-    }, [tasks])
+    }, [])
 
 
     return (
