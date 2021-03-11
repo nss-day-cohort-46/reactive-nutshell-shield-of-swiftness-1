@@ -8,6 +8,7 @@ export const EventList = () => {
     
     const { events, getEvents } = useContext(EventContext)
     const [sortedEvents, setEvents] = useState([])
+    let eventCounter = 0
 
     // const currentUserId = +sessionStorage.getItem("nutshell_user")
 
@@ -24,12 +25,13 @@ export const EventList = () => {
                 
                 const otherEvent = new Date(futureEvent.date)
                 const upcomingEvent = new Date(nextEvent.date)
-                
-                return otherEvent.date - upcomingEvent.date
+
+
+                return otherEvent - upcomingEvent
                 
             })
         setEvents(theSortedEvents)
-    }, [])
+    }, [events])
 
     return (
         <>
@@ -40,7 +42,11 @@ export const EventList = () => {
                 <div>
                     {
                         sortedEvents.map(eventObj => {
-                            return <EventCard key={eventObj.id} event={eventObj} />
+                            
+                            eventCounter++
+                            
+
+                            return <EventCard key={eventObj.id} event={eventObj} counter={eventCounter} />
                         })
                     }
 

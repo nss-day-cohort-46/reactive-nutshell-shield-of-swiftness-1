@@ -3,8 +3,7 @@ import { EventContext } from "./EventProvider"
 import { useHistory, useParams } from "react-router-dom"
 import "./Event.css"
 
-export const EventCard = ({event}) => {
-
+export const EventCard = ({event, counter}) => {
     const { deleteEvent, editEvent } = useContext(EventContext)
     
     // const [event, setEvent] = useState({
@@ -22,6 +21,16 @@ export const EventCard = ({event}) => {
         deleteEvent(event.id)
     }
 
+    let p = {}
+    let section = {}
+    let header = {}
+
+    if (counter === 1) {
+        p = {
+            fontWeight: 'bold',
+            color: 'blue'
+        }
+    }
     
 
     return (
@@ -29,7 +38,8 @@ export const EventCard = ({event}) => {
             <h5 className="event__name">
                 {event.name}
             </h5>
-            <div className="event__date">{event.date}</div>
+            <div className="event__date" style={p}>{event.date}
+            </div>
             <div className="event__location">{event.location}</div>
             <button className="event__delete"
             onClick={handleDelete}>Delete Event</button>
