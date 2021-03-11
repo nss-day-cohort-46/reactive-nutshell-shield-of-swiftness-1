@@ -1,7 +1,7 @@
 // Author: Tracy Depp
 // Purpose: Responsible for rendering individual task obj as HTML
 
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {TaskContext} from "./TaskProvider.js"
 import {Task} from "./Task.js"
 import {useHistory} from "react-router-dom"
@@ -11,14 +11,19 @@ export const TaskList = () => {
     const history = useHistory()
     // This state changes when `getTasks()` is invoked below
     const { tasks, getTasks} = useContext(TaskContext)
-
-    //useEffect - reach out to the world for something - API call for the tasks; wil only run one time at intial render because array is empty
+    const [filteredTasks, setFilteredTasks] = useState([])
+    
+     //useEffect - reach out to the world for something - API call for the tasks; wil only run one time at intial render because array is empty
     useEffect(() => {
-      // console.log("TaskList: useEffect - getTasks")
+      getTasks()
+      }, [])
+
+   
+    useEffect(() => {
       getTasks()
       .then(()=>{
-        const filteredTasks=tasks.filter(task=> task.isComplete === false)
-        getTasks(filteredTasks)
+        const subset = filteredTasks.filter(task=> task.isComplete === false)
+        setFilteredTasks(subset)
       })
 
     }, [])

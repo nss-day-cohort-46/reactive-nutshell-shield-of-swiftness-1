@@ -7,26 +7,36 @@ import { FriendCard } from "./FriendsCard"
 export const FriendsSearch = () => {
   const { friends, getFriends } = useContext(FriendsContext)
   const [filteredUsers, setFilteredFriends] = useState([])
-  const { searchTerms, setSearchTerms, users, getUsers } = useContext(UsersContext)
+  const { users, getUsers } = useContext(UsersContext)
+  const [searchTerms, setSearchTerms] = useState("")
 
     
-  useEffect(() => {
-      getUsers()
-      .then(getFriends())
-  }, [])
+  // useEffect(() => {
+  //     getUsers()
+  //     .then(getFriends())
+  // }, [])
 
-  useEffect(() => {
-      if(searchTerms !== ""){
-        //   I want to filter users array based on whats in the search terms
-        let subSet = users.filter(user => user.name.includes(searchTerms)) 
-        // I want to set the state variable to what the .filter returns
-        setFilteredFriends(subSet) 
-      } else {
-        //   what is in the parenthesis is what you are setting filtered users to be 
-          (setFilteredFriends([]))
+  // useEffect(() => {
+  //     if(searchTerms !== ""){
+  //       //   I want to filter users array based on whats in the search terms
+  //       let subSet = users.filter(user => user.name.includes(searchTerms)) 
+  //       // I want to set the state variable to what the .filter returns
+  //       setFilteredFriends(subSet) 
+  //     } else {
+  //       //   what is in the parenthesis is what you are setting filtered users to be 
+  //         (setFilteredFriends([]))
 
-      }
-  }, [searchTerms])
+  //     }
+  // }, [searchTerms])
+
+    useEffect(() => {
+        getUsers().then(() => {
+        if (searchTerms !== "") {
+            const subset = users.filter(user => user.name.toLowerCase().includes(searchTerms.toLowerCase()))
+            setFilteredFriends(subset)
+        }
+        })
+    }, [searchTerms])
 
   return (
     <>
