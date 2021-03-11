@@ -6,13 +6,30 @@ import "./Event.css"
 
 export const EventList = () => {
     
-    const { sortedEvents, getEvents } = useContext(EventContext)
+    const { events, getEvents } = useContext(EventContext)
+    const [sortedEvents, setEvents] = useState([])
+
+    // const currentUserId = +sessionStorage.getItem("nutshell_user")
 
     const history = useHistory()
 
     useEffect(() => {
         getEvents()
-      }, [])
+    }, [])
+        
+
+    useEffect(() => {
+        const theSortedEvents = events.splice().sort(
+            (futureEvent, nextEvent) => {
+                
+                const otherEvent = new Date(futureEvent.date)
+                const upcomingEvent = new Date(nextEvent.date)
+                
+                return otherEvent.date - upcomingEvent.date
+                
+            })
+        setEvents(theSortedEvents)
+    }, [])
 
     return (
         <>

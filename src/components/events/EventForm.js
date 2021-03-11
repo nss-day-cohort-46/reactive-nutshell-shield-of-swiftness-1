@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { useHistory, } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { EventContext } from "./EventProvider"
 import "./Event.css"
 
