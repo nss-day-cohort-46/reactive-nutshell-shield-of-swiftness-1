@@ -26,6 +26,13 @@ export const TaskProvider = (props) => {
 
    }
 
+   const deleteTask = taskId => {
+    return fetch(`http://localhost:8088/tasks/${taskId}`, {
+        method: "DELETE"
+    })
+        .then(getTasks)
+}
+
  //completeTask function with taskId as a parameter (need to connect the checkbox/isComplete to a task id)
 
    const completeTask = taskId => {
@@ -51,7 +58,7 @@ export const TaskProvider = (props) => {
 
     return (
         <TaskContext.Provider value={{
-            tasks, getTasks, addTask, completeTask
+            tasks, getTasks, addTask, completeTask, deleteTask
         }}>
 
             {props.children}
