@@ -3,15 +3,14 @@
 
 import React, { useContext } from "react"
 import {TaskContext} from "./TaskProvider.js"
-import {useHistory} from "react-router-dom"
+
 
 
 
 
 
 export const Task = ({task}) => {
-    const history = useHistory();
-
+    
     const {completeTask} = useContext(TaskContext)
    
 

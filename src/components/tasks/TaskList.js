@@ -10,12 +10,16 @@ import {useHistory} from "react-router-dom"
 export const TaskList = () => {
     const history = useHistory()
     // This state changes when `getTasks()` is invoked below
-    const { tasks, getTasks } = useContext(TaskContext)
+    const { tasks, getTasks} = useContext(TaskContext)
 
     //useEffect - reach out to the world for something - API call for the tasks; wil only run one time at intial render because array is empty
     useEffect(() => {
       // console.log("TaskList: useEffect - getTasks")
       getTasks()
+      .then(()=>{
+        const filteredTasks=tasks.filter(task=> task.isComplete === false)
+        getTasks(filteredTasks)
+      })
 
     }, [])
 
