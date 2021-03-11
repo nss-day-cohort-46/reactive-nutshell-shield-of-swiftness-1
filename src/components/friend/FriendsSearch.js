@@ -36,7 +36,7 @@ export const FriendsSearch = () => {
             setFilteredFriends(subset)
         }
         })
-    }, [searchTerms, users])
+    }, [searchTerms])
 
   return (
     <>
