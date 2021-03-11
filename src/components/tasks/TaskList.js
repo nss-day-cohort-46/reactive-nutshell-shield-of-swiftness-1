@@ -26,7 +26,7 @@ export const TaskList = () => {
         setFilteredTasks(subset)
       })
 
-    }, [])
+    }, [tasks])
 
 
     return (
