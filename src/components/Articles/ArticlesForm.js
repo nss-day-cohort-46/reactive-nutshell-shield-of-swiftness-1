@@ -50,13 +50,14 @@ export const ArticleForm = () => {
         getArticles()
     }, [])
 
+    
     return (
         <form className="articleForm">
             <h2 className="ariticleForm__title">Add a New Article</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Article Title:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article title"
+                    <label htmlFor="title">Article Title:</label>
+                    <input type="text" id="title"  required autoFocus className="form-control" placeholder="Article title" onChange={handleControlledInputChange}
                     
                     value={article.title}/>
                 </div>
@@ -64,7 +65,7 @@ export const ArticleForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="synopsis">Article synopsis:</label>
-                    <input type="synopsis" id="synopsis" required className="form-control" 
+                    <input type="text" id="synopsis" required className="form-control" 
                     onChange={handleControlledInputChange}
                     value={article.synopsis}/>
                 </div>
@@ -72,7 +73,7 @@ export const ArticleForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="url">url:</label>
-                    <input type="text" id="location" required className="form-control" placeholder="Article url"
+                    <input type="text" id="url" required className="form-control" placeholder="Article url"
                     onChange={handleControlledInputChange}
                     value={article.url}/>
                 </div>
