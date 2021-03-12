@@ -6,11 +6,13 @@ import "./Event.css"
 
 export const EventList = () => {
     
+
     const { events, getEvents } = useContext(EventContext)
     const [sortedEvents, setEvents] = useState([])
     let eventCounter = 0
 
     // const currentUserId = +sessionStorage.getItem("nutshell_user")
+
 
     const history = useHistory()
 
@@ -27,11 +29,13 @@ export const EventList = () => {
                 const upcomingEvent = new Date(nextEvent.date)
 
 
+
                 return otherEvent - upcomingEvent
                 
             })
         setEvents(theSortedEvents)
     }, [events])
+
 
     return (
         <>

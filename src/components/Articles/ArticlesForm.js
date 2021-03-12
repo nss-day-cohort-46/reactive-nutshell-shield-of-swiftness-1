@@ -78,8 +78,9 @@ export const ArticleForm = () => {
                     value={article.url}/>
                 </div>
             </fieldset>
-            <button className="btn btn-primary" type="submit"
-                >
+            
+            <button className="btn btn-primary" 
+            onClick={handleSaveArticle}>
                 Save New Article
             </button>
         </form>
