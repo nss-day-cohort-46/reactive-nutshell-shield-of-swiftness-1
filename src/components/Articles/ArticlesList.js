@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { ArticleContext } from "./ArticlesProvider"
 import { ArticleCard } from "./Articles"
+import { Link } from "react-router-dom"
 
 export const ArticlesList = () => {
     
@@ -25,9 +26,11 @@ export const ArticlesList = () => {
                             return <ArticleCard key={articleObj.id} article={articleObj} />
                         })
                     }
-
                 </div>
             </div>
+            <Link to="articles/create">
+                <button className="articles_addBtn">Add An Article</button>
+            </Link>
         </>
     )
 }
