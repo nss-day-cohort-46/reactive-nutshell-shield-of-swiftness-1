@@ -30,6 +30,7 @@ export const Task = ({task}) => {
     <input id="task__completed" type ="checkbox" onChange={taskCompleted} value={task.id}/>
     <button className="task__delete"
             onClick={handleDelete}>Delete Task</button>
+            
     </section>
 )
 
